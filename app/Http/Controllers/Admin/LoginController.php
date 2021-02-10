@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/admin/news';
 
     /**
      * Create a new controller instance.
@@ -40,7 +40,7 @@ class LoginController extends Controller
     
     public function showLoginForm()
     {
-        return view('admin.login');
+        return view('admin.auth.login');
     }
     
     protected function guard()
@@ -50,7 +50,7 @@ class LoginController extends Controller
     
     public function logout(Request $request)
     {
-        \Auth::guard('admin')->logout();
+        $this->guard('admin')->logout();
         return redirect('/admin/login');
     }
 }
